@@ -25,8 +25,8 @@ const ProductCard = ({ title, price, quantity, thumbnail, id }: IProduct) => {
     dispatch(productDeleted(id));
   };
 
-  const minCount = 1;
-  const maxCount = 10;
+  const minQuantity = 1;
+  const maxQuantity = 10;
   return (
     <Box
       padding={2}
@@ -60,7 +60,7 @@ const ProductCard = ({ title, price, quantity, thumbnail, id }: IProduct) => {
             alignItems="center"
           >
             <Button
-              disabled={quantity === minCount}
+              disabled={quantity === minQuantity}
               onClick={handleDecrementProduct}
             >
               <RemoveIcon />
@@ -69,7 +69,7 @@ const ProductCard = ({ title, price, quantity, thumbnail, id }: IProduct) => {
               {quantity}
             </Typography>
             <Button
-              disabled={quantity === maxCount}
+              disabled={quantity === maxQuantity}
               onClick={handleIncrementProduct}
             >
               <AddIcon />
