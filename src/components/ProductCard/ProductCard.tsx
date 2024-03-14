@@ -24,6 +24,9 @@ const ProductCard = ({ title, price, quantity, thumbnail, id }: IProduct) => {
   const handleDeleteProduct = () => {
     dispatch(productDeleted(id));
   };
+
+  const minCount = 1;
+  const maxCount = 10;
   return (
     <Stack
       width="100%"
@@ -41,7 +44,7 @@ const ProductCard = ({ title, price, quantity, thumbnail, id }: IProduct) => {
         />
       </Box>
       <Box width="200px">
-        <Typography>{title}</Typography>
+        <Typography variant="h6">{title}</Typography>
       </Box>
       <Box>
         <Stack
@@ -57,13 +60,19 @@ const ProductCard = ({ title, price, quantity, thumbnail, id }: IProduct) => {
             justifyContent="center"
             alignItems="center"
           >
-            <Button disabled={quantity === 1} onClick={handleDecrementProduct}>
+            <Button
+              disabled={quantity === minCount}
+              onClick={handleDecrementProduct}
+            >
               <RemoveIcon />
             </Button>
             <Typography variant="body1" color="InfoText">
               {quantity}
             </Typography>
-            <Button disabled={quantity === 10} onClick={handleIncrementProduct}>
+            <Button
+              disabled={quantity === maxCount}
+              onClick={handleIncrementProduct}
+            >
               <AddIcon />
             </Button>
           </Stack>
