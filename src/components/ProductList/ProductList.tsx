@@ -1,7 +1,5 @@
 import { Box, Stack, Typography } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
 import { useAppDispatch, useAppSelector, useHttp } from "../../hooks/hooks";
-import { RootState } from "../../store";
 import ProductCard from "../ProductCard/ProductCard";
 import { fetchProducts } from "../../actions";
 import { useEffect } from "react";
@@ -17,6 +15,7 @@ const ProductList = () => {
   const { request } = useHttp();
   useEffect(() => {
     dispatch(fetchProducts(request));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (productsLoadingStatus === "loading") return <Spinner />;

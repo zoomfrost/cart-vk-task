@@ -36,12 +36,15 @@ const productsSlice = createSlice({
       state,
       action: PayloadAction<IChangeQuantityProduct>
     ) => {
-      state.products = state.products.map((product) => {
-        if (product.id === action.payload.id) {
-          product.quantity += action.payload.count;
-        }
-        return product;
-      });
+      // state.products = state.products.map((product) => {
+      //   if (product.id === action.payload.id) {
+      //     product.quantity += action.payload.count;
+      //   }
+      //   return product;
+      // });
+      state.products.filter(
+        (product) => product.id === action.payload.id
+      )[0].quantity += action.payload.count;
     },
     productDeleted: (state, action: PayloadAction<number>) => {
       state.products = state.products.filter(

@@ -28,22 +28,21 @@ const ProductCard = ({ title, price, quantity, thumbnail, id }: IProduct) => {
   const minCount = 1;
   const maxCount = 10;
   return (
-    <Stack
-      width="100%"
-      alignItems="start"
-      justifyContent="space-between"
-      direction="row"
-      bgcolor="white"
+    <Box
       padding={2}
+      bgcolor="whiteSmoke"
+      display="grid"
+      gridTemplateColumns="repeat(4, 1fr)"
+      gap={3}
     >
-      <Box width="200px" height="200px">
+      <Box>
         <img
           style={{ objectFit: "contain", width: "200px", height: "200px" }}
           src={thumbnail}
           alt={title}
         />
       </Box>
-      <Box width="200px">
+      <Box whiteSpace="normal">
         <Typography variant="h6">{title}</Typography>
       </Box>
       <Box>
@@ -81,10 +80,10 @@ const ProductCard = ({ title, price, quantity, thumbnail, id }: IProduct) => {
           </Button>
         </Stack>
       </Box>
-      <Box width="100px" textAlign="center">
+      <Box textAlign="center">
         <Typography>{price * quantity} руб.</Typography>
       </Box>
-    </Stack>
+    </Box>
   );
 };
 

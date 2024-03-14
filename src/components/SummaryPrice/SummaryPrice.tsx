@@ -10,8 +10,8 @@ const SummaryPrice = () => {
   const productsLoadingStatus = useAppSelector(
     (state) => state.products.productsLoadingStatus
   );
-  const price = products.reduce((totalPrice: number, item: IProduct) => {
-    return totalPrice + item.price * item.quantity;
+  const price = products.reduce((totalPrice: number, product: IProduct) => {
+    return totalPrice + product.price * product.quantity;
   }, 0);
   if (productsLoadingStatus === "loading") {
     return <Spinner />;
