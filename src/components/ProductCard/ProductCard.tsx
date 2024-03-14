@@ -37,14 +37,14 @@ const ProductCard = ({ title, price, quantity, thumbnail, id }: IProduct) => {
     >
       <Box>
         <img
-          style={{ objectFit: "contain", width: "200px", height: "200px" }}
+          style={{ objectFit: "contain", width: '100%', height: '100%'}}
           src={thumbnail}
           alt={title}
         />
       </Box>
-      <Box whiteSpace="normal">
-        <Typography variant="h6">{title}</Typography>
-      </Box>
+        <Box>
+          <Typography variant="body1">{title}</Typography>
+        </Box>
       <Box>
         <Stack
           direction="column"
@@ -55,7 +55,7 @@ const ProductCard = ({ title, price, quantity, thumbnail, id }: IProduct) => {
           <Stack
             width="100px"
             direction="row"
-            spacing={2}
+            spacing={1}
             justifyContent="center"
             alignItems="center"
           >
@@ -65,7 +65,7 @@ const ProductCard = ({ title, price, quantity, thumbnail, id }: IProduct) => {
             >
               <RemoveIcon />
             </Button>
-            <Typography variant="body1" color="InfoText">
+            <Typography  color="InfoText">
               {quantity}
             </Typography>
             <Button
